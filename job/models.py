@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -19,6 +20,7 @@ def image_upload(instance,filename):
 
 class job(models.Model):
     title=models.CharField(max_length=100)
+    slug=models.SlugField(null=True,blank=True)
     #location
     job_type=models.CharField(max_length=15, choices=job_type)
     description=models.TextField(max_length=1000)
@@ -28,6 +30,10 @@ class job(models.Model):
     experience=models.IntegerField(default=1)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     image=models.ImageField(upload_to=image_upload)
+
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.title)
+        super(job,self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
