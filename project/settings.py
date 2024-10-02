@@ -130,19 +130,10 @@ STATICFILES_DIRS =[
 ]
 
 
-# Static files (CSS, JavaScript, Images)
-# STATIC_URL = '/static/'
-
-# # Assuming BASE_DIR is already defined using Path
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-#     Path('/var/www/static/'),
-# ]
-
 
 MEDIA_URL = 'media/'
+MEDIA_ROOT=os.path.join(BASE_DIR, "media")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
