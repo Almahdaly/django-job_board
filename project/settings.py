@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'contact',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
