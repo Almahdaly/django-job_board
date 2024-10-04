@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'home',
     'contact',
     'django_bootstrap5',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

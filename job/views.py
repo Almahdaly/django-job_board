@@ -4,15 +4,20 @@ from django.core.paginator import Paginator
 from .models import job
 from .form import Applyform ,JobForm
 from django.contrib.auth.decorators import login_required
+from .filters import JobFilter
 
 
 # Create your views here.
 def job_list(request):
     job_list=job.objects.all()
+
+    myfilter=JobFilter(request.GET,queryset=job_list)
+    job_list=myfilter.qs
+
     paginator=Paginator(job_list,3)
     page_number=request.GET.get('page')
     page_obj= paginator.get_page(page_number)
-    cotext={'jobs':page_obj}
+    cotext={'jobs':page_obj,'myfilter':myfilter}
     return render(request,"job/job_list.html",cotext)
 
 def job_detail(request, slug):
