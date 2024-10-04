@@ -15,9 +15,10 @@
                         <form  method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
 
-                            {% bootstrap_form form %}
+                            {% bootstrap_form userform %}
+                            {% bootstrap_form profileform %}
 
-                            {% bootstrap_button button_type="submit" content="Post NOW" extra_classes="boxed-btn3 w-100 mb-2" %} 
+                            {% bootstrap_button button_type="submit" content="Save" extra_classes="boxed-btn3 w-100 mb-2" %} 
                         </form>
                     </div>
                 </div>

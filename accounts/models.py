@@ -8,7 +8,8 @@ from django.dispatch import receiver
 # Create your models here.
 class City(models.Model):
     name=models.CharField(max_length=30)
-
+    def __str__(self):
+        return self.name
 
 class Profile(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
